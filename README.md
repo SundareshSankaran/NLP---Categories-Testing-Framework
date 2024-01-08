@@ -8,7 +8,7 @@ Rapid AI prototyping improves time to value.  Implement processes based on this 
 
 ### Overview (YouTube)
 
-![[NLP - Categories Testing Framework](./img/NLP%20-%20Categories%20Testing%20Framework.png)](https://youtu.be/Uy81JNpg9vg)
+[![NLP - Categories Testing Framework](./img/NLP%20-%20Categories%20Testing%20Framework.png)](https://youtu.be/Uy81JNpg9vg)
 
 https://youtu.be/Uy81JNpg9vg
 
