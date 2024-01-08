@@ -33,13 +33,13 @@ This custom step requires a SAS Visual Text Analytics (VTA) license. It runs on 
 1. Input table containing a text column (input port, required): attach a CAS table to this port
 
 2. Analytics project caslib (text field, required):  paste the location of your VTA project.  Here's how you find the location:
-   i.   Open the project in Model Studio 
-   ii.  Navigate to the Data tab
-   iii. Copy the location from the properties menu (right-hand side).  Feel free to copy the entire string instead of just the \"Analytics_project...\" portion.
+   1.   Open the project in Model Studio 
+   2.  Navigate to the Data tab
+   3. Copy the location from the properties menu (right-hand side).  Feel free to copy the entire string instead of just the \"Analytics_project...\" portion.
 
 3. Model binary name (text field, required): paste the model binary filename here.  To identify the model binary, 
-   i. Right-click on your Categories node and select Results.
-  ii. Copy the binary referred in the score code.
+   1. Right-click on your Categories node and select Results.
+   2. Copy the binary referred in the score code.
 
 4. Unique ID (column selector, required): select the unique identifier for each observation in your table.
 
