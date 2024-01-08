@@ -129,6 +129,7 @@ Refer [here](./extras/NLP%20-%20Categories%20Testing%20Framework.sas) for the SA
 ## Created / contact : 
 
 - Sundaresh Sankaran (sundaresh.sankaran@sas.com)
+- Renato Luppi (renato.luppi@sas.com)
 
 ## Change Log
 
