@@ -1,0 +1,96 @@
+{"children": [
+				{
+					"id": "about_description",
+					"type": "text",
+					"text": "NLP - Categories Testing Framework\n=========================\n\nThis custom step facilitates testing, assessment and continuous improvement of a SAS Visual Text Analytics (VTA) categorization model. \n\nRapid AI prototyping improves time to value.  Implement processes based on this custom step (and custom reporting templates provided in the same repo) to assess the current progress of your model.\n\nAn example application is to run this step in parallel with your NLP model development and visualize assessment output using SAS Visual Analytics.\n",
+					"visible": ""
+				},
+				{
+					"id": "about_parameters",
+					"type": "section",
+					"label": "Parameters",
+					"open": true,
+					"visible": "",
+					"children": [
+						{
+							"id": "parameters_text",
+							"type": "text",
+							"text": "This custom step requires a SAS Visual Text Analytics (VTA) license. \n\nIt runs on data loaded to a SAS Cloud Analytics Services (CAS) library (known as a caslib). Ensure you are connected to CAS before running this step. \n\nMake sure the step has permissions to write to the output caslib, and also that caslibs are assigned once you've established a connection to CAS.\n",
+							"visible": ""
+						},
+						{
+							"id": "parameters_input",
+							"type": "section",
+							"label": "Input Parameters",
+							"open": 1,
+							"visible": "",
+							"children": [
+								{
+									"id": "input_parameters_text",
+									"type": "text",
+									"text": "1. Input table containing a text column (input port, required): attach a CAS table to this port.\n\n2. Analytics project caslib (text field, required):  paste the location of your VTA project.  Here's how you find the location:\n\n   i.   Open the project in Model Studio \n   ii.  Navigate to the Data tab\n   iii. Copy the location from the properties menu (right-hand side).  Feel free to copy the entire string instead of just the \"Analytics_project...\" portion.\n\n3. Model binary name (text field, required): paste the model binary filename here.  To identify the model binary, \n   i. Right-click on your categories node and select Results.\n  ii. Copy the binary referred in the score code.\n\n4. Unique ID (column selector, required): select the unique identifier for each observation in your table.\n\n5. Text variable (column selector, required): select a character variable containing text you wish to analyze.\n\n6. Actuals (column selector, required): select a column to serve as the basis for assessment (also known as  target, ground truth or category role).",
+									"visible": ""
+								}
+							]
+						},
+						{
+							"id": "parameters_output_specs",
+							"type": "section",
+							"label": "Output Specifications",
+							"open": 1,
+							"visible": "",
+							"children": [
+								{
+									"id": "output_parameters_text",
+									"type": "text",
+									"text": "This custom step creates a single output table and automatically promotes it to global scope. Promotion facilitates downstream analysis in SAS Visual Analytics. \n\n1.  Output table (output table port, required): attach a CAS table.  Note that you will obtain multiple observations per document ranging across candidate categories. \n\n2.  Promote to global scope (checked):  currently, the option to promote the output table is frozen.  Future versions may provide you the flexibility to choose whether to promote or not.\n\nA selection of some important columns in the output table:\n\n1. Category_Level: all candidate categories which are assessed\n2. Record_Type: a flag indicating whether the record is a True Positive, False Positive, True Negative or a False Negative\n3. Unique_ID: a new unique identifier variable  created for each observation in the output table to facilitate further discovery\n4.  _match_text_: keywords contributing to the categories matched in the output table, to facilitate qualitative analysis\n",
+									"visible": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "about_runtimecontrol",
+					"type": "section",
+					"label": "Run-time Control",
+					"open": 0,
+					"visible": "",
+					"children": [
+						{
+							"id": "runtimecontrol_text",
+							"type": "text",
+							"text": "Note: Run-time control is optional.  You may choose whether to execute the main code of this step or not, based on upstream conditions set by earlier SAS programs.  This includes nodes run prior to this custom step earlier in a SAS Studio Flow, or a previous program in the same session.\n\nRefer this blog (https://communities.sas.com/t5/SAS-Communities-Library/Switch-on-switch-off-run-time-control-of-SAS-Studio-Custom-Steps/ta-p/885526) for more details on the concept.\n\nThe following macro variable,\n\n_nctf_run_trigger\n\nwill initialize with a value of 1 by default, indicating an \"enabled\" status and allowing the custom step to run.\n\nIf you wish to control execution of this custom step, include code in an upstream SAS program to set this variable to 0.  This \"disables\" execution of the custom step.\n\nTo \"disable\" this step, run the following code upstream:\n\n%global _nctf_run_trigger;\n%let _nctf_run_trigger =0;\n\nTo \"enable\" this step again, run the following (it's assumed that this has already been set as a global variable):\n\n%let _nctf_run_trigger =1;\n\nIMPORTANT: Be aware that disabling this step means that none of its main execution code will run, and any  downstream code which was dependent on this code may fail.  Change this setting only if it aligns with the objective of your SAS Studio program.",
+							"visible": ""
+						}
+					]
+				},
+				{
+					"id": "about_documentation",
+					"type": "section",
+					"label": "Documentation",
+					"open": 0,
+					"visible": "",
+					"children": [
+						{
+							"id": "documentation_text",
+							"type": "text",
+							"text": "1.  Documentation on the textRuleScore.applyCategory action: https://go.documentation.sas.com/doc/en/pgmsascdc/default/casvtapg/cas-textrulescore-applycategory.htm\n\n2. This custom step uses FedSQL to join CAS tables.  The dynamic cardinality feature proves useful for joins involving 3+ tables (also taking their size into consideration).  Thanks to Andy Therber, SAS, for details.  Documentation: https://go.documentation.sas.com/doc/en/pgmsascdc/default/casfedsql/p0lrihvbn5xnfdn1a86poyhemp9f.htm\n\n3. Documentation on the fedsql.execDirect action:  https://go.documentation.sas.com/doc/en/pgmsascdc/default/caspg/cas-fedsql-execdirect.htm\n\n4. From a use-case perspective, refer this (slightly old but still relevant) SAS Communities article for an example application: https://communities.sas.com/t5/SAS-Communities-Library/Priming-the-pump-for-better-risk-assessment/ta-p/565370",
+							"visible": ""
+						}
+					]
+				},
+				{
+					"id": "version_text",
+					"type": "text",
+					"text": "Version: 1.0  (03JAN2024)",
+					"visible": ""
+				},
+				{
+					"id": "contact_text",
+					"type": "text",
+					"text": "Created/contact: \n\n- Sundaresh Sankaran (sundaresh.sankaran@sas.com)\n",
+					"visible": ""
+				}
+			]
+		}
