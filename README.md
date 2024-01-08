@@ -102,6 +102,22 @@ IMPORTANT: Be aware that disabling this step means that none of its main executi
 
 4. From a use-case perspective, refer this (slightly old but still relevant) [SAS Communities article](https://communities.sas.com/t5/SAS-Communities-Library/Priming-the-pump-for-better-risk-assessment/ta-p/565370) for an example application. 
 
+## Bonus: Templates for Visualization
+
+The [extras](./extras/) folder provides instructions on how to import three SAS Visual Analytics page templates which will help you visualize and assess the output data.  Refer [here](/extras/Import%20Report%20Templates.md) for instructions.
+
+### NLP Categories - Confusion Matrix
+
+[NLP Categories - Confusion Matrix](./img/NLP%20Categories%20-%20Confusion%20Matrix.png)
+
+### NLP Categories - Evaluation
+
+[NLP Categories - Evaluation](./img/NLP%20Categories%20-%20Evaluation.png)
+
+### NLP Categories - Coverage
+
+[NLP Categories - Coverage](./img/NLP%20Categories%20-%20Coverage.png)
+
 ## SAS Program
 
 Refer [here](./extras/NLP%20-%20Categories%20Testing%20Framework.sas) for the SAS program used by the step.  You'd find this useful for situations where you wish to execute this step through non-SAS Studio Custom Step interfaces such as the [SAS Extension for Visual Studio Code](https://github.com/sassoftware/vscode-sas-extension), with minor modifications. 
