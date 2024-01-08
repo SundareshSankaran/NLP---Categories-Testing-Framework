@@ -108,15 +108,15 @@ The [extras](./extras/) folder provides instructions on how to import three SAS 
 
 ### NLP Categories - Confusion Matrix
 
-[NLP Categories - Confusion Matrix](./img/NLP%20Categories%20-%20Confusion%20Matrix.png)
+![NLP Categories - Confusion Matrix](./img/NLP%20Categories%20-%20Confusion%20Matrix.png)
 
 ### NLP Categories - Evaluation
 
-[NLP Categories - Evaluation](./img/NLP%20Categories%20-%20Evaluation.png)
+![NLP Categories - Evaluation](./img/NLP%20Categories%20-%20Evaluation.png)
 
 ### NLP Categories - Coverage
 
-[NLP Categories - Coverage](./img/NLP%20Categories%20-%20Coverage.png)
+![NLP Categories - Coverage](./img/NLP%20Categories%20-%20Coverage.png)
 
 ## SAS Program
 
